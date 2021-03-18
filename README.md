@@ -14,5 +14,6 @@
 # Activity Lifecycle in Action
 ![201721185 윤효묵 lifecycle 과제](https://user-images.githubusercontent.com/79956770/111563069-99ed0600-87da-11eb-8d62-8269e1134a0e.JPG)
 
+교수님, 애뮬레이터 안 나온다고 html 파일에 적었는데, 문제 고쳐서 잘 나옵니다^^
 https://www.youtube.com/watch?v=70Q4un2AR7k
 
