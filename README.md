@@ -13,7 +13,6 @@
 # In-class Homework Week 3 Day 1 #1
 # Activity Lifecycle in Action
 ![201721185 윤효묵 lifecycle 과제](https://user-images.githubusercontent.com/79956770/111563069-99ed0600-87da-11eb-8d62-8269e1134a0e.JPG)
-![Uploading image.png…]()
 
 https://www.youtube.com/watch?v=70Q4un2AR7k
 
