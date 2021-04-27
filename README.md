@@ -18,7 +18,8 @@
 
 https://www.youtube.com/watch?v=70Q4un2AR7k
 
-'''java
+
+
 //'''
 
 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {   // 그리드뷰에 대한 OnClickListener 함수 실행
