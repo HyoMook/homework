@@ -18,6 +18,52 @@
 
 https://www.youtube.com/watch?v=70Q4un2AR7k
 
+```
+package org.techtown.mypictureproject;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.ImageView;
+
+public class FullScreenActivity extends AppCompatActivity {
+
+    ImageView imageView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_full_screen);
+
+        imageView = (ImageView) findViewById(R.id.image_view);
+
+        //getSupportActionBar() .hide();
+        //getSupportActionBar() .setTitle("Full Screen Image");
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("id");
+        ImageAdapter imageAdapter = new ImageAdapter(this);
+
+        imageView.setImageResource(imageAdapter.imageArray[position]);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+}```
 
 
 
