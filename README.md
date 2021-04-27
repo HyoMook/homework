@@ -20,8 +20,7 @@ https://www.youtube.com/watch?v=70Q4un2AR7k
 
 
 
-//'''
-
+'''
 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {   // 그리드뷰에 대한 OnClickListener 함수 실행
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -29,5 +28,4 @@ gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {   // 그
                 intent.putExtra("id",position);
                 startActivity(intent);
             }
-            
             '''
