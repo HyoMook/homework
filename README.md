@@ -65,5 +65,55 @@ public class FullScreenActivity extends AppCompatActivity {
     }
 }```
 
+![6주차 3번째](https://user-images.githubusercontent.com/79956770/116978847-3887e480-acff-11eb-947a-0ba5a8b4ceae.JPG)
+public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<User> arrayList;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView); // 아이디 연결
+        recyclerView.setHasFixedSize(true); 
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        arrayList = new ArrayList<>(); // User객체를 담을 arraylist (adapt쪽으로)
+
+        database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스 연동
+
+        databaseReference = database.getReference("User"); // DB 테이블 연결
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+                arrayList.clear(); // 기존 배열 리스트가 존재하지 않게 초기화
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { //반복문으로 데이터 리스트를 추출
+                    User user = snapshot.getValue(User.class); // 만들어졌던 User 객체에 데이터를 담는다
+                    arrayList.add(user); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                }
+                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        adapter = new CustomAdapter(arrayList, this);
+        recyclerView.setAdapter(adapter); //리사이클러뷰에 어댑터 연결
+
+    }
+}
+
+
 
 
